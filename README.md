@@ -53,43 +53,42 @@ In a function or procedure call, actual parameters are written after the keyword
 
 The grammar of the language is described by the following rules:
 
-<program>	 ::= program id <block> endprogram 
-<block>		::=<declarations><subprograms><statements> <br />
-<declarations>	::= ε | declare<varlist> enddeclare <br />
-<varlist>	::= ε | id ( , id )* <br />
-<subprograms>	::= (<procorfunc> ) * <br />
-<procorfunc>	::= procedure id<procorfuncbody> endprocedure | function id <procorfuncbody>endfunction <br />
-<procorfuncbody>	::=<formalpars><block> <br />
-<formalpars>	::= ( <formalparlist>) <br />
-<formalparlist>	::= <formalparitem>( ,<formalparitem> )* | ε <br />
-<formalparitem>	::= in id | inout id <br />
-<statements>	::= <statement>( ;<statement> )* <br />
-<statement>	::= ε | <assignment-stat>|<if-stat>|<while-stat>|<repeat-stat>|<exit-stat>|<switch-stat>|<forcase-stat>|<call-stat>|<return-stat>|<input-stat>|<print-stat> <br />
-<assignment-stat>	::= id := <expression> <br />
-<if-stat>	::= if<condition> then<statements><elsepart> endif <br />
-<elsepart>	::= ε | else<statements> <br />
-<repeat-stat>	::= repeat <statements>endrepeat <br />
-<exit-stat>	::= exit <br />
-<while-stat>	::= while <condition><statements>endwhile <br />
-<switch-stat>	::= switch<expression>(case <expression>:<statements>)+endswitch <br />
-<forcase-stat>	::= forcase ( when <condition>: <statements>)+ endforcase <br />
-<call-stat>	::= call id <actualpars> <br />
-<return-stat>	::= return <expression> <br />
-<print-stat>	::= print <expression> <br />
-<input-statt> 	::= input id <br />
-<actualpars>	::= ( <actualparlist>) <br />
-<actualparlis>	::= <actualparitem> ( , <actualparitem> )* | ε <br />
-<actualparitemm> 	::= in <expression> | inout id <br />
-<return-statt> 	::= return<expression> <br />
-<condition>	::= <boolterm>(or <boolterm>)* <br />
-<boolterm> 	::= <boolfactor> (and <boolfactor>)* <br />
-<boolfactorr> 	::=not [<conditionn>] | [<conditionn>] | <expressionn> <relational-oper> <expression> |true | false <br />
-<expression>	::= <optional-sign> <term> ( <add-operr> <term>)* <br />
-<term> 		::= <factor> (<mul-oper> <factor>)* <br />
-<factor>	::= constant | (<expression>) | id <idtail> <br />
-<idtail>		 ::= ε | <actualpars> <br />
-<relational-oper>	 ::= = | <= |>= | > | < | <> <br />
-<add-oper> 	::= + | - <br />
-<mul-oper> 	::= * | / <br />
-<optional-sign> 	::= ε | <add-oper> <br />
-
+<program> ::= program id <block> endprogram
+<block> ::= <declarations> <subprograms> <statements>
+<declarations> ::= ε | declare <varlist> enddeclare
+<varlist> ::= ε | id ( , id )*
+<subprograms> ::= (<procorfunc> ) *
+<procorfunc> ::= procedure id <procorfuncbody> endprocedure | function id <procorfuncbody> endfunction
+<procorfuncbody> ::= <formalpars> <block>
+<formalpars> ::= ( <formalparlist> )
+<formalparlist> ::= <formalparitem>( ,<formalparitem> )* | ε
+<formalparitem> ::= in id | inout id
+<statements> ::= <statement>( ;<statement> )*
+<statement> ::= ε | <assignment-stat>|<if-stat>|<while-stat>|<repeat-stat>|<exit-stat>|<switch-stat>|<forcase-stat>|<call-stat>|<return-stat>|<input-stat>|<print-stat>
+<assignment-stat> ::= id := <expression>
+<if-stat> ::= if <condition> then <statements> <elsepart> endif
+<elsepart> ::= ε | else <statements>
+<repeat-stat> ::= repeat <statements> endrepeat
+<exit-stat> ::= exit
+<while-stat> ::= while <condition> <statements> endwhile
+<switch-stat> ::= switch <expression> (case <expression>: <statements>)+ endswitch
+<forcase-stat> ::= forcase ( when <condition>: <statements>)+ endforcase
+<call-stat> ::= call id <actualpars>
+<return-stat> ::= return <expression>
+<print-stat> ::= print <expression>
+<input-statt> ::= input id
+<actualpars> ::= ( <actualparlist> )
+<actualparlis> ::= <actualparitem> ( , <actualparitem> )* | ε
+<actualparitemm> ::= in <expression> | inout id
+<return-statt> ::= return <expression>
+<condition> ::= <boolterm>(or <boolterm>)*
+<boolterm> ::= <boolfactor> (and <boolfactor>)*
+<boolfactorr> ::= not [<conditionn>] | [<conditionn>] | <expressionn> <relational-oper> <expression> | true | false
+<expression> ::= <optional-sign> <term> ( <add-operr> <term>)*
+<term> ::= <factor> (<mul-oper> <factor>)*
+<factor> ::= constant | (<expression>) | id <idtail>
+<idtail> ::= ε | <actualpars>
+<relational-oper> ::= = | <= | >= | > | < | <>
+<add-oper> ::= + | -
+<mul-oper> ::= * | /
+<optional-sign> ::= ε | <add-oper>
