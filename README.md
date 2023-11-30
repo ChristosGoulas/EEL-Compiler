@@ -53,20 +53,20 @@ In a function or procedure call, actual parameters are written after the keyword
 
 The grammar of the language is described by the following rules:
 
- <program>	 ::= program id<block> endprogram <br />
- <block>		::=<declarations><subprograms><statements> <br />
- <declarations>	::= ε | declare<varlist> enddeclare <br />
- <varlist>	::= ε | id ( , id )* <br />
- <subprograms>	::= (<procorfunc> ) * <br />
- <procorfunc>	::= procedure id<procorfuncbody> endprocedure | function id <procorfuncbody>endfunction <br />
- <procorfuncbody>	::=<formalpars><block> <br />
- <formalpars>	::= ( <formalparlist>) <br />
- <formalparlist>	::= <formalparitem>( ,<formalparitem> )* | ε <br />
- <formalparitem>	::= in id | inout id <br />
- <statements>	::= <statement>( ;<statement> )* <br />
- <statement>	::= ε | <assignment-stat>|<if-stat>|<while-stat>|<repeat-stat>|<exit-stat>|<switch-stat>|<forcase-stat>|<call-stat>|<return-stat>|<input-stat>|<print-stat> <br />
- <assignment-stat>	::= id := <expression> <br />
- <if-stat>	::= if<condition> then<statements><elsepart> endif <br />
+<program>	 ::= program id <block> endprogram 
+<block>		::=<declarations><subprograms><statements> <br />
+<declarations>	::= ε | declare<varlist> enddeclare <br />
+<varlist>	::= ε | id ( , id )* <br />
+<subprograms>	::= (<procorfunc> ) * <br />
+<procorfunc>	::= procedure id<procorfuncbody> endprocedure | function id <procorfuncbody>endfunction <br />
+<procorfuncbody>	::=<formalpars><block> <br />
+<formalpars>	::= ( <formalparlist>) <br />
+<formalparlist>	::= <formalparitem>( ,<formalparitem> )* | ε <br />
+<formalparitem>	::= in id | inout id <br />
+<statements>	::= <statement>( ;<statement> )* <br />
+<statement>	::= ε | <assignment-stat>|<if-stat>|<while-stat>|<repeat-stat>|<exit-stat>|<switch-stat>|<forcase-stat>|<call-stat>|<return-stat>|<input-stat>|<print-stat> <br />
+<assignment-stat>	::= id := <expression> <br />
+<if-stat>	::= if<condition> then<statements><elsepart> endif <br />
 <elsepart>	::= ε | else<statements> <br />
 <repeat-stat>	::= repeat <statements>endrepeat <br />
 <exit-stat>	::= exit <br />
