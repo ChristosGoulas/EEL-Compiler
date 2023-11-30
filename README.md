@@ -5,13 +5,13 @@ EEL (Early Experimental Language) is a small programming language. It supports f
 # The alphabet of EEL 
 
 * Unordered sub-list. lowercase and uppercase letters of the Latin alphabet ("A" to "Z" and "a" to "z"),
-* numerical digits ("0" to "9"),
-* symbols of arithmetic operations ("+", "-", "*", "/"),
-* relational operators "<", ">", "=", "<=", ">=", "<>",
-* assignment symbol ":=",
-* delimiters (";", ",", ":"),
-* grouping symbols ("(", ")", "[", "]"),
-* and comment delimiters ("*", "*", \).
+* Numerical digits ("0" to "9"),
+* Symbols of arithmetic operations ("+", "-", "*", "/"),
+* Relational operators "<", ">", "=", "<=", ">=", "<>",
+* Assignment symbol ":=",
+* Delimiters (";", ",", ":"),
+* Grouping symbols ("(", ")", "[", "]"),
+* Comment delimiters ("*", "*", \).
 The symbols "[" and "]" are used in logical expressions, similar to "(" and ")" in arithmetic expressions.
 
 Certain words are reserved:
