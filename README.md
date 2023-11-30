@@ -46,5 +46,5 @@ EEL supports two parameter passing methods:
 
 * Pass by value, declared with the keyword "in." Changes to its value do not reflect back to the calling program.
 * Pass by reference, declared with the keyword "inout." Any change in its value is transferred back to the calling program.
-* 
+
 In a function or procedure call, actual parameters are written after the keywords "in" and "inout," depending on whether they are passed by value or reference, respectively.
