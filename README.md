@@ -2,7 +2,7 @@
 
 EEL (Early Experimental Language) is a small programming language. It supports functions and procedures, parameter passing by reference and value, recursive calls, and other structures. It also allows nesting in the declaration of functions and procedures. However, it does not support basic programming tools such as the "for" structure or data types like real numbers and strings.
 
-# The alphabet of EEL 
+# EEL's Alphabet
 
 * Unordered sub-list. lowercase and uppercase letters of the Latin alphabet ("A" to "Z" and "a" to "z"),
 * Numerical digits ("0" to "9"),
@@ -48,3 +48,47 @@ EEL supports two parameter passing methods:
 * Pass by reference, declared with the keyword "inout." Any change in its value is transferred back to the calling program.
 
 In a function or procedure call, actual parameters are written after the keywords "in" and "inout," depending on whether they are passed by value or reference, respectively.
+
+# EEL's Grammar
+
+The grammar of the language is described by the following rules:
+<program>	 ::= program id<block> endprogram
+<block>		::=<declarations><subprograms><statements>
+<declarations>	::= ε | declare<varlist> enddeclare
+<varlist>	::= ε | id ( , id )*
+<subprograms>	::= (<procorfunc> ) *
+<procorfunc>	::= procedure id<procorfuncbody> endprocedure | function id <procorfuncbody>endfunction
+<procorfuncbody>	::=<formalpars><block>
+<formalpars>	::= ( <formalparlist>)
+<formalparlist>	::= <formalparitem>( ,<formalparitem> )* | ε
+<formalparitem>	::= in id | inout id
+<statements>	::= <statement>( ;<statement> )*
+<statement>	::= ε | <assignment-stat>|<if-stat>|<while-stat>|<repeat-stat>|<exit-stat>|<switch-stat>|<forcase-stat>|<call-stat>|<return-stat>|<input-stat>|<print-stat>
+<assignment-stat>	::= id := <expression>
+<if-stat>	::= if<condition> then<statements><elsepart> endif
+<elsepart>	::= ε | else<statements>
+<repeat-stat>	::= repeat <statements>endrepeat
+<exit-stat>	::= exit
+<while-stat>	::= while <condition><statements>endwhile
+<switch-stat>	::= switch<expression>(case <expression>:<statements>)+endswitch
+<forcase-stat>	::= forcase ( when <condition>: <statements>)+ endforcase
+<call-stat>	::= call id <actualpars>
+<return-stat>	::= return <expression>
+<print-stat>	::= print <expression>
+<input-statt> 	::= input id
+<actualpars>	::= ( <actualparlist>)
+<actualparlis>	::= <actualparitem> ( , <actualparitem> )* | ε
+<actualparitemm> 	::= in <expression> | inout id
+<return-statt> 	::= return<expression>
+<condition>	::= <boolterm>(or <boolterm>)*
+<boolterm> 	::= <boolfactor> (and <boolfactor>)*
+<boolfactorr> 	::=not [<conditionn>] | [<conditionn>] | <expressionn> <relational-oper> <expression> |true | false
+<expression>	::= <optional-sign> <term> ( <add-operr> <term>)*
+<term> 		::= <factor> (<mul-oper> <factor>)*
+<factor>	::= constant | (<expression>) | id <idtail>
+<idtail>		 ::= ε | <actualpars>
+<relational-oper>	 ::= = | <= |>= | > | < | <>
+<add-oper> 	::= + | -
+<mul-oper> 	::= * | /
+<optional-sign> 	::= ε | <add-oper>
+
