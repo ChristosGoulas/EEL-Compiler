@@ -1,0 +1,18 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# OS & Editor
+.DS_Store
+.vscode/
+.idea/
+
+# Generated build & compiler outputs
+compiler_results/

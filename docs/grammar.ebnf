@@ -1,0 +1,101 @@
+(* ================================================================= *
+ * EEL (Educational Imperative Language) - Formal EBNF Grammar        *
+ * ================================================================= *)
+
+program             ::= "program" ID declarations subprograms statements "endprogram" ;
+
+declarations        ::= [ "declare" varlist "enddeclare" ] ;
+
+varlist             ::= ID { "," ID } ;
+
+subprograms         ::= { procorfunc } ;
+
+procorfunc          ::= procedure | function ;
+
+procedure           ::= "procedure" ID formalpars block "endprocedure" ;
+
+function            ::= "function" ID formalpars block "endfunction" ;
+
+formalpars          ::= "(" [ formalparlist ] ")" ;
+
+formalparlist       ::= formalparitem { "," formalparitem } ;
+
+formalparitem       ::= ( "in" | "inout" ) ID ;
+
+block               ::= declarations subprograms statements ;
+
+statements          ::= statement { ";" statement } ;
+
+statement           ::= [ assignment_stat 
+                        | if_stat 
+                        | while_stat 
+                        | repeat_stat 
+                        | exit_stat 
+                        | switch_stat 
+                        | forcase_stat 
+                        | call_stat 
+                        | return_stat 
+                        | input_stat 
+                        | print_stat ] ;
+
+assignment_stat     ::= ID ":=" expression ;
+
+if_stat             ::= "if" condition "then" statements [ "else" statements ] "endif" ;
+
+while_stat          ::= "while" condition statements "endwhile" ;
+
+repeat_stat         ::= "repeat" statements "endrepeat" ;
+
+exit_stat           ::= "exit" ;
+
+switch_stat         ::= "switch" expression { "case" expression ":" statements } "endswitch" ;
+
+forcase_stat        ::= "forcase" { "when" condition ":" statements } "endforcase" ;
+
+call_stat           ::= "call" ID actualpars ;
+
+return_stat         ::= "return" expression ;
+
+input_stat          ::= "input" ID ;
+
+print_stat          ::= "print" expression ;
+
+actualpars          ::= "(" [ actualparlist ] ")" ;
+
+actualparlist       ::= actualparitem { "," actualparitem } ;
+
+actualparitem       ::= "in" expression | "inout" ID ;
+
+condition           ::= boolterm { "or" boolterm } ;
+
+boolterm            ::= boolfactor { "and" boolfactor } ;
+
+boolfactor          ::= "not" "[" condition "]" 
+                      | "[" condition "]" 
+                      | "true" 
+                      | "false" 
+                      | expression relational_oper expression ;
+
+expression          ::= [ optional_sign ] term { add_oper term } ;
+
+term                ::= factor { mul_oper factor } ;
+
+factor              ::= "(" expression ")" 
+                      | ID [ idtail ] 
+                      | CONST ;
+
+idtail              ::= actualpars ;
+
+relational_oper     ::= "=" | "<>" | "<" | "<=" | ">" | ">=" ;
+
+add_oper            ::= "+" | "-" ;
+
+mul_oper            ::= "*" | "/" ;
+
+optional_sign       ::= "+" | "-" ;
+
+(* Lexical Terminals *)
+ID                  ::= LETTER { LETTER | DIGIT } ;
+CONST               ::= DIGIT { DIGIT } ;
+LETTER              ::= "a" | ... | "z" | "A" | ... | "Z" ;
+DIGIT               ::= "0" | ... | "9" ;

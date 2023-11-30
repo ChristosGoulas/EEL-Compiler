@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eel-compiler"
+version = "0.1.0"
+description = "A single-pass compiler for the EEL programming language targeting MIPS assembly, quadruples, and ANSI C."
+readme = "README.md"
+authors = [
+    { name = "Christos Goulas" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "mypy>=1.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+eel-compiler = "eel_compiler.cli:main"
+eelc = "eel_compiler.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/ChristosGoulas/EEL-Compiler"
+Repository = "https://github.com/ChristosGoulas/EEL-Compiler"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["eel_compiler*"]
+
+[tool.setuptools.package-data]
+eel_compiler = ["py.typed"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
