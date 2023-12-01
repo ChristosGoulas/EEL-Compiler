@@ -60,7 +60,7 @@ The grammar of the language is described by the following rules:
 # Using the Compiler
 
 1. Open Terminal.
-2. Run ./compiler <EEL program>.
+2. Run ./compiler file.eel.
 
 Output
 * file.int -> Intermediate Code.
