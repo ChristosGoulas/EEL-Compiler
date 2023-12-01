@@ -1047,7 +1047,7 @@ def condition():
         condtrue1,condfalse1=boolterm()
         while(tokenboard[1]=='ortk'):
                 backpatch(condfalse1,nextquad())
-                tokenboard=lektiokos_analutis()
+                tokenboard=lektikos_analutis()
                 condtrue2,condfalse2=boolterm()
                 condtrue1=mergelist(condtrue1,condtrue2)
                 condfalse1=condfalse2
