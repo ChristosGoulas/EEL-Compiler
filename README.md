@@ -56,3 +56,15 @@ The grammar of the language is described by the following rules:
 ![plot](https://github.com/XristosGoulas/EEL-Compiler/blob/main/grammar_eel_1.png)
 
 ![plot](https://github.com/XristosGoulas/EEL-Compiler/blob/main/grammar_eel_2.png)
+
+# Using the Compiler
+
+1. Open Terminal.
+2. Run ./compiler <EEL program>.
+
+Output
+* file.int -> Intermediate Code.
+* file.c -> C Code.
+* file.asm -> Assembly Code.
+
+
