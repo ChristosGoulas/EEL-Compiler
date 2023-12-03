@@ -1,5 +1,3 @@
-#Christos Goulas 2677 cse42677
-#Mouxani Ismini 2761 cse42761
 import sys
 boundedwords = ['program','endprogram','declare','enddeclare','if','then','else','endif','while','endwhile','repeat','endrepeat', 'exit','switch', 'case', 'endswitch','forcase','when', 'endforcase','procedure', 'endprocedure', 'function', 'endfunction', 'call', 'return', 'in', 'inout'
 ,'and', 'or', 'not', 'true', 'false','input', 'print']
