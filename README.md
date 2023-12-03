@@ -60,11 +60,12 @@ The grammar of the language is described by the following rules:
 # Using the Compiler
 
 1. Open Terminal.
-2. Run ./compiler.py file.eel.
+2. Run  python compiler.py file.eel.
 
 Output
 * file.int -> Intermediate Code.
 * file.c -> C Code.
 * file.asm -> Assembly Code.
 
-
+# Language
+Python 3
