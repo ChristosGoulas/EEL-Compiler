@@ -48,3 +48,11 @@ cd EEL-Compiler
 ```bash 
 python compiler.py examples/example.eel
 ```
+
+---
+
+## ⚖️ License
+
+This project is licensed under the [MIT License](docs/License.md).
+
+---
